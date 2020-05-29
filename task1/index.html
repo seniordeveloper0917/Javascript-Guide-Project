@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="icon" href="img/icon.png" type="image/png" sizes="16x16">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        .column {
+            float: left;
+            width: 50%;
+            padding: 10px;
+            height: 500px;
+            border-right: 2px solid red;
+        }
+        
+        .in-line {
+            float: left;
+            width: 33.33%;
+            padding-left: 10px;
+            padding-top: 25px;
+            text-align: center;
+            font-size: 15px;
+            cursor: pointer;
+            color: white;
+        }
+        
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        .head-1 {
+            background: #43bee2;
+            height: 50px;
+            padding-top: 15px;
+            text-align: center;
+        }
+        
+        input[type=number] {
+            width: 100%;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 13px;
+            background-color: white;
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 5px;
+        }
+        
+        input[type=color] {
+            width: 100%;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 13px;
+            background-color: white;
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            height: 100px;
+        }
+        
+        .output {
+            width: 50% !important;
+        }
+        
+        .background-line {
+            float: left;
+            width: 100%;
+            padding-left: 10px;
+            padding-top: 25px;
+            text-align: left;
+            font-size: 15px;
+            cursor: pointer;
+            color: white;
+            /*border: 1px solid grey;*/
+        }
+        
+        .but-line {
+            float: left;
+            padding-left: 10px;
+            padding-top: 25px;
+            text-align: center;
+            font-size: 15px;
+            cursor: pointer;
+            color: white;
+            /*border: 1px solid grey;*/
+        }
+        
+        label {
+            color: black;
+        }
+        
+        a {
+            padding-top: 25px;
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+        
+        a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        .output {
+            background-color: #4CAF50;
+            color: white;
+            height: 43px;
+            line-height: 28px;
+        }
+        
+        .previous {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .next {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .delete {
+            background-color: red;
+            color: white;
+        }
+        
+        .round {
+            border-radius: 50%;
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        .output-container {
+            height: 100%;
+            overflow-y: scroll;
+        }
+        
+        .output-cell {
+            padding: 10px;
+            cursor: pointer;
+        }
+        
+        .active {
+            background-color: gray;
+            color: white;
+        }
+        
+        .col-9 {
+            width: 66.66%;
+            float: left;
+        }
+        
+        .col-3 {
+            width: 33.33%;
+            float: left;
+        }
+        
+        .pt-42 {
+            padding-top: 42px;
+        }
+        
+        .button-line {
+            width: 100%;
+            float: left;
+            padding-left: 10px;
+            text-align: center;
+            font-size: 15px;
+            cursor: pointer;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .button {
+            color: white;
+            height: 43px;
+            line-height: 28px;
+            width: 50%;
+        }
+        
+        .move-top {
+            background-color: #4a4ae7;
+        }
+        
+        .move-up {
+            background-color: #f65555;
+        }
+        
+        .move-down {
+            background-color: #58be58;
+        }
+        
+        .move-bottom {
+            background-color: lightslategrey;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Welcome to here! This is the Best Array of numbers</h2>
+
+    <div class="row">
+        <div class="column">
+            <div class="row">
+                <div class="head-1"><b>Please input you want</b></div>
+            </div>
+            <div class="row">
+                <div class="in-line">
+                    <input id="first_number" placeholder="Please Enter First Number" type="number">
+                </div>
+                <div class="in-line">
+                    <input id="last_number" placeholder="Please Enter Second Number" type="number">
+                </div>
+                <div class="in-line">
+                    <a class="output">Output</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-9">
+                    <div class="row">
+                        <div class="background-line">
+                            <label style="margin-right: 127px">Background color</label>
+                            <input id="back_color" name="favcolor" type="color" value="#808080">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="background-line">
+                            <label style="margin-right: 175px">Text color</label>
+                            <input id="text_color" name="favcolor" type="color" value="#ffffff">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 pt-42">
+                    <div class="button-line">
+                        <a class="button move-top">Top</a>
+                    </div>
+                    <div class="button-line">
+                        <a class="button move-up">Up</a>
+                    </div>
+                    <div class="button-line">
+                        <a class="button move-down">Down</a>
+                    </div>
+                    <div class="button-line">
+                        <a class="button move-bottom">Bottom</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="but-line">
+                    <a class="previous">&laquo; Previous</a>
+                    <a class="next" style="margin-left: 60px;">Next &raquo;</a>
+                    <a class="delete" style="margin-left: 60px;">Delete</a>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="row">
+                <div class="head-1"><b>Output</b></div>
+            </div>
+            <div class="row output-container">
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./index-1.js"></script>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="icon" href="img/icon.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <h2>Welcome to here! This is the Best Array of numbers</h2>
+
+    <div class="row">
+        <div class="column">
+            <div class="row">
+                <div class="head-1">Count : <b id="count">0</b></div>
+            </div>
+            <div class="row width-50 margin-auto mv-30">
+                <div class="row row-cell">
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="row">
+                <div class="head-1"><b>Control</b></div>
+            </div>
+            <div class="row output-container">
+                <div class="row">
+                    <div class="button-line flex justify-center pt20">
+                        <select class="form-control" id="sel1" onchange="changeOption(this.value)">
+                            <option value="3">3X3</option>
+                            <option value="4">4X4</option>
+                            <option value="5">5X5</option>
+                          </select>
+                    </div>
+                </div>
+                <div class="row pt-20">
+                    <div class="button-line">
+                        <a class="button reset" onclick="reset()">Reset</a>
+                    </div>
+                    <div class="button-line">
+                        <a class="button undo" onclick="undo()">Undo</a>
+                    </div>
+                    <div class="button-line">
+                        <a class="button redo" onclick="redo()">Redo</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5 justify-center">
+                        <div class="button-line text-right">
+                            <a class="button left" onclick="moveCard(1, 0)">Left</a>
+                        </div>
+                    </div>
+                    <div class="col-2 justify-between">
+                        <div class="button-line">
+                            <a class="button up" onclick="moveCard(10000, 0)">Up</a>
+                        </div>
+                        <div class="button-line">
+                            <a class="button down" onclick="moveCard(10001,0)">Down</a>
+                        </div>
+                    </div>
+                    <div class="col-5 justify-center">
+                        <div class="button-line text-left">
+                            <a class="button right" onclick="moveCard(-1,0)">Right</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./index.js"></script>
+
+</html>
