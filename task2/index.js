@@ -81,7 +81,7 @@ function moveCard(x, val) {
         if (val == 0) {
             num = num + 1;
             $('#count').html(num);
-            historyArray.push(str.slice());
+            historyArray.splice(historyIndex, 0, str.slice());
             historyIndex++;
             latestStr = str.slice();
         }
@@ -133,6 +133,11 @@ function changeOption(val) {
     option = parseInt(val);
     init();
 }
+
+$(document).on("keyup", "#input", function(e) {
+    option = parseInt(e.target.value);
+    init();
+})
 
 function isEqual(a, b) {
     // if length is not equal 

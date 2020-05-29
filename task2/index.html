@@ -12,28 +12,24 @@
 
     <h2>Welcome to here! This is the Best Array of numbers</h2>
 
-    <div class="row">
-        <div class="column">
+    <div class="row flex">
+        <div class="column flex algin-center direction-column">
             <div class="row">
                 <div class="head-1">Count : <b id="count">0</b></div>
             </div>
-            <div class="row width-50 margin-auto mv-30">
-                <div class="row row-cell">
+            <div class="row margin-auto mv-30 inline-block">
+                <div class="row row-cell margin-auto">
                 </div>
             </div>
         </div>
-        <div class="column">
+        <div class="column width-450">
             <div class="row">
                 <div class="head-1"><b>Control</b></div>
             </div>
             <div class="row output-container">
                 <div class="row">
                     <div class="button-line flex justify-center pt20">
-                        <select class="form-control" id="sel1" onchange="changeOption(this.value)">
-                            <option value="3">3X3</option>
-                            <option value="4">4X4</option>
-                            <option value="5">5X5</option>
-                          </select>
+                        <input id="input" placeholder="Enter Row" type="number">
                     </div>
                 </div>
                 <div class="row pt-20">
